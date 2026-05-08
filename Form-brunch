@@ -1,0 +1,341 @@
+"use client";
+
+import { useState } from "react";
+
+export default function Page() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+
+  return (
+    <div
+      style={{
+        margin: 0,
+        fontFamily: "Arial, sans-serif",
+        backgroundColor: "#0a0a0a",
+        color: "white",
+        minHeight: "100vh",
+      }}
+    >
+      {/* HERO */}
+      <section
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          padding: "20px",
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div
+          style={{
+            border: "1px solid rgba(255,255,255,0.2)",
+            borderRadius: "999px",
+            padding: "8px 16px",
+            marginBottom: "20px",
+            fontSize: "12px",
+            letterSpacing: "2px",
+          }}
+        >
+          MUBRUNCH EXPERIENCE
+        </div>
+
+        <h1
+          style={{
+            fontSize: "clamp(50px, 10vw, 120px)",
+            lineHeight: "0.9",
+            margin: 0,
+            fontWeight: "900",
+          }}
+        >
+          MOVE.
+          <br />
+          RUN.
+          <br />
+          BRUNCH.
+        </h1>
+
+        <p
+          style={{
+            marginTop: "30px",
+            maxWidth: "700px",
+            opacity: 0.8,
+            lineHeight: "1.6",
+            fontSize: "18px",
+          }}
+        >
+          Pilates, running e brunch in una mattinata di energia,
+          connessione e community.
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginTop: "30px",
+            opacity: 0.8,
+          }}
+        >
+          <span>📅 Domenica 17/05</span>
+          <span>🕤 09:30</span>
+          <span>📍 Terraviva · Via delle Erbe 29</span>
+        </div>
+
+        <a href="#signup">
+          <button
+            style={{
+              marginTop: "40px",
+              padding: "18px 30px",
+              borderRadius: "999px",
+              border: "none",
+              background: "white",
+              color: "black",
+              fontWeight: "bold",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+          >
+            JOIN THE EXPERIENCE
+          </button>
+        </a>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section
+        style={{
+          padding: "100px 20px",
+          maxWidth: "1100px",
+          margin: "0 auto",
+        }}
+      >
+        <h2 style={{ marginBottom: "40px", fontSize: "40px" }}>
+          Experience
+        </h2>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+            gap: "20px",
+          }}
+        >
+          <div style={cardStyle}>
+            <h3>🧘 Pilates Flow</h3>
+            <p>
+              Lezione con ManuAthletics, insegnante pilates e tecnico FIDAL.
+            </p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>🏃 Running Session</h3>
+            <p>3 km · 5 km · 8 km — scegli il tuo ritmo.</p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>🥐 Community Brunch</h3>
+            <p>Food, recovery e connessioni reali dopo il workout.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROGRAM */}
+      <section
+        style={{
+          background: "white",
+          color: "black",
+          padding: "100px 20px",
+        }}
+      >
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "40px", marginBottom: "40px" }}>
+            Event Schedule
+          </h2>
+
+          <div style={timelineStyle}>
+            <strong>09:30</strong>
+            <span>Ritrovo & drop off</span>
+          </div>
+
+          <div style={timelineStyle}>
+            <strong>10:00</strong>
+            <span>Pilates con ManuAthletics</span>
+          </div>
+
+          <div style={timelineStyle}>
+            <strong>10:30</strong>
+            <span>Running Session</span>
+          </div>
+
+          <div style={timelineStyle}>
+            <strong>12:00</strong>
+            <span>Brunch finale</span>
+          </div>
+        </div>
+      </section>
+
+      {/* SIGNUP */}
+      <section
+        id="signup"
+        style={{
+          padding: "100px 20px",
+          maxWidth: "600px",
+          margin: "0 auto",
+        }}
+      >
+        {!submitted ? (
+          <>
+            <h2
+              style={{
+                textAlign: "center",
+                fontSize: "50px",
+                marginBottom: "10px",
+              }}
+            >
+              Reserve Your Spot
+            </h2>
+
+            <p
+              style={{
+                textAlign: "center",
+                opacity: 0.7,
+                marginBottom: "40px",
+              }}
+            >
+              Early Bird 17€ entro il 13/05 · Standard 20€
+            </p>
+
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                display: "grid",
+                gap: "15px",
+              }}
+            >
+              <input
+                placeholder="Nome e Cognome"
+                required
+                style={inputStyle}
+              />
+
+              <input
+                placeholder="Email"
+                required
+                style={inputStyle}
+              />
+
+              <input
+                placeholder="Telefono"
+                required
+                style={inputStyle}
+              />
+
+              <select style={inputStyle}>
+                <option>3 km</option>
+                <option>5 km</option>
+                <option>8 km</option>
+              </select>
+
+              <button type="submit" style={buttonStyle}>
+                COMPLETE REGISTRATION
+              </button>
+            </form>
+
+            <p
+              style={{
+                textAlign: "center",
+                marginTop: "20px",
+                opacity: 0.5,
+                fontSize: "13px",
+              }}
+            >
+              ⚠️ Porta il tuo tappetino per il pilates
+            </p>
+          </>
+        ) : (
+          <div style={{ textAlign: "center" }}>
+            <h2 style={{ fontSize: "50px" }}>You’re In ✅</h2>
+
+            <p style={{ opacity: 0.7 }}>
+              Completa il pagamento per confermare il tuo posto.
+            </p>
+
+            <a href="https://www.paypal.com/" target="_blank">
+              <button style={{ ...buttonStyle, marginTop: "30px" }}>
+                PAY WITH PAYPAL
+              </button>
+            </a>
+
+            <p
+              style={{
+                marginTop: "20px",
+                opacity: 0.5,
+                fontSize: "12px",
+              }}
+            >
+              Inserire nome e cognome nella causale
+            </p>
+          </div>
+        )}
+      </section>
+
+      {/* FOOTER */}
+      <footer
+        style={{
+          textAlign: "center",
+          padding: "30px",
+          opacity: 0.5,
+          fontSize: "12px",
+        }}
+      >
+        Mubrunch Experience © 2026
+      </footer>
+    </div>
+  );
+}
+
+const cardStyle = {
+  background: "rgba(255,255,255,0.05)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  padding: "30px",
+  borderRadius: "24px",
+  lineHeight: "1.6",
+};
+
+const timelineStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  borderBottom: "1px solid #ddd",
+  padding: "20px 0",
+  fontSize: "18px",
+};
+
+const inputStyle = {
+  padding: "16px",
+  borderRadius: "14px",
+  border: "1px solid rgba(255,255,255,0.1)",
+  background: "rgba(255,255,255,0.05)",
+  color: "white",
+  fontSize: "16px",
+};
+
+const buttonStyle = {
+  padding: "18px",
+  borderRadius: "999px",
+  border: "none",
+  background: "white",
+  color: "black",
+  fontWeight: "bold",
+  cursor: "pointer",
+  fontSize: "15px",
+};
